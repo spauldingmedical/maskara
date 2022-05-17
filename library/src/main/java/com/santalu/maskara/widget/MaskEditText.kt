@@ -49,6 +49,14 @@ class MaskEditText @JvmOverloads constructor(
         }
     }
 
+    fun update(mask: String,
+               character: Char = mask.mostOccurred(),
+               style: MaskStyle = MaskStyle.NORMAL) {
+
+        val mask = Mask(mask, character, style)
+        maskChangedListener = MaskChangedListener(mask)
+    }
+
     /**
      * Let only one [maskChangedListener] allowed at a time
      */

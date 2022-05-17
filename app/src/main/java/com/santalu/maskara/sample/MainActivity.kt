@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
+import com.santalu.maskara.MaskStyle
 import com.santalu.maskara.sample.databinding.ActivityMainBinding
+import com.santalu.maskara.widget.MaskEditText
 
 /**
  * Created by fatih.santalu on 7/7/2020.
@@ -25,5 +27,8 @@ class MainActivity : AppCompatActivity() {
             binding.unMasked.text = "Raw ${binding.input.unMasked}"
             binding.status.text = "isDone ${binding.input.isDone}"
         }
+
+        var input = findViewById<MaskEditText>(R.id.input);
+        input.update("__/__/__", '_', MaskStyle.PERSISTENT);
     }
 }
